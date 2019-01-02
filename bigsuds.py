@@ -326,7 +326,7 @@ def get_wsdls(hostname, username='admin', password='admin', verify=False,
 
     wsdls = {}
     for line in result.readlines():
-        result = regex.search(line)
+        result = regex.search(line.decode())
         if result:
             namespace, rest = result.groups()[0].split(".", 1)
             if namespace not in wsdls:
